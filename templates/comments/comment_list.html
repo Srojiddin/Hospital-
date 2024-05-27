@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Comment List</title>
+</head>
+<body>
+    <h1>Comment List</h1>
+    <ul>
+        {% for comment in object_list %}
+            <li>
+                <a href="{% url 'comment_detail' comment.pk %}">{{ comment.title }}</a>
+                (<a href="{% url 'comment_update' comment.pk %}">Edit</a>)
+                (<a href="{% url 'comment_delete' comment.pk %}">Delete</a>)
+            </li>
+        {% endfor %}
+    </ul>
+    <a href="{% url 'comment_create' %}">Create a new comment</a>
+</body>
+</html>
