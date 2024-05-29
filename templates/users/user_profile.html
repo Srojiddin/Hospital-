@@ -1,0 +1,17 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Профиль пользователя</title>
+</head>
+<body>
+    <h2>Профиль пользователя</h2>
+    <p>Имя пользователя: {{ user.username }}</p>
+    <p>Адрес электронной почты: {{ user.email }}</p>
+    <p>Имя: {{ user.first_name }}</p>
+    <p>Фамилия: {{ user.last_name }}</p>
+    <a href="{% url 'user_update' %}">Обновить профиль</a>
+</body>
+</html>
+

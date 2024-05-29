@@ -4,7 +4,10 @@ from django.urls import path,include
 from django.conf import settings
 from django.conf.urls.static import static
 
-api_urlpatterns = []
+api_urlpatterns = [
+    path('doctor/', include('apps.doctors.api.urls')),
+    path('comments/', include('apps.comments.api.urls')),
+]
 
 urlpatterns = [
     path('admin/', admin.site.urls),

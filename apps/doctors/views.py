@@ -6,11 +6,9 @@ from apps.doctors.models import Doctor
 from apps.doctors.forms import DoctorCreateForm, DoctorUpdateForm, DoctorDeleteForm
 
 
-class Homepage(View):
+class HomePageView(View):
     def get(self, request):
-        Hospital = Doctor.objects.all()
-        return render(request, 'index.html', {'blogs': Hospital})
-
+        return render(request, 'homepage.html')
 
 class DoctorCreateView(generic.CreateView):
     model = Doctor

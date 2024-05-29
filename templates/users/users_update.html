@@ -1,0 +1,17 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Обновить пользователя</title>
+</head>
+<body>
+    <h2>Обновить пользователя</h2>
+    <form method="post">
+        {% csrf_token %}
+        {{ form.as_p }}
+        <p>Пароль: Нет установленного пароля. Сырые пароли не хранятся, поэтому нет возможности увидеть пароль этого пользователя, но вы можете изменить пароль с помощью этой формы.</p>
+        <button type="submit">Сохранить</button>
+    </form>
+</body>
+</html>

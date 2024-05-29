@@ -1,8 +1,9 @@
+from django.contrib.auth.decorators import login_required
 from django.shortcuts import render, redirect
 from django.views import generic
 from django.contrib.auth import get_user_model
 from django.contrib.auth import login, authenticate, logout
-from apps.users.forms import UserCreationForm, UserUpdateForm
+from apps.users.forms import UserCreationForm, UserUpdateForm, UserRegisterForm, UserLoginForm
 from django.views.generic import DeleteView
 from django.contrib.auth.models import User
 from django.views import View
@@ -20,57 +21,61 @@ class UserCreateView(generic.CreateView):
 
 class UserDetailView(generic.DetailView):
     model = User
-    template_name = 'users_detail.html'
+    template_name = 'users/users_detail.html'
     context_object_name = 'user'
 
 
 class UserUpdateView(generic.UpdateView):
     model = User
     form_class = UserUpdateForm
-    template_name = 'users_update.html'
+    template_name = 'users/users_update.html'
     context_object_name = 'user'
-    success_url = '/index.html'
+    success_url = '/profile/'
 
+
+class UserProfileView(generic.DetailView):
+    model = User
+    template_name = 'users/user_profile.html'
+    context_object_name = 'user'
+
+    def get_object(self, queryset=None):
+        return self.request.user
 
 class UserDeleteView(DeleteView):
     model = User
-    template_name = 'user_delete.html'
+    template_name = 'users/user_delete.html'
     context_object_name = 'user'
     success_url = '/index.html'
 
 
-class User:
-    def __init__(self, username, password):
-        self.username = username
-        self.password = password
+class RegisterView(View):
+    def get(self, request):
+        form = UserRegisterForm()
+        return render(request, 'users/register.html', {'form': form})
+
+    def post(self, request):
+        form = UserRegisterForm(request.POST)
+        if form.is_valid():
+            user = form.save()
+            login(request, user)
+            return redirect('home')
+        return render(request, 'users/register.html', {'form': form})
 
 
-class UserManager:
-    def __init__(self):
-        self.users = []
+class LoginView(View):
+    def get(self, request):
+        form = UserLoginForm()
+        return render(request, 'users/login.html', {'form': form})
 
-    def register(self, username, password):
-        if self.find_user(username) is None:
-            self.users.append(User(username, password))
-            print(f"Пользователь {username} успешно зарегистрирован.")
-        else:
-            print("Пользователь с таким именем уже существует.")
+    def post(self, request):
+        form = UserLoginForm(request, data=request.POST)
+        if form.is_valid():
+            user = form.get_user()
+            login(request, user)
+            return redirect('home')
+        return render(request, 'users/login.html', {'form': form})
 
-    def find_user(self, username):
-        for user in self.users:
-            if user.username == username:
-                return user
-        return None
-
-    def authenticate(self, username, password):
-        user = self.find_user(username)
-        if user is not None and user.password == password:
-            print(f"Пользователь {username} успешно авторизован.")
-        else:
-            print("Неверное имя пользователя или пароль.")
-
-
-# userManager = UserManager()
-# userManager.register("user1", "password1")
-# userManager.authenticate("user1", "password1")
-# userManager.authenticate("user1", "password2")
+@login_required
+def logout_view(request):
+    logout(request)
+    return redirect('home')
