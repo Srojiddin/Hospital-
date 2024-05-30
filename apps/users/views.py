@@ -1,8 +1,11 @@
 from django.contrib.auth.decorators import login_required
 from django.shortcuts import render, redirect
+from django.urls import reverse_lazy
 from django.views import generic
 from django.contrib.auth import get_user_model
 from django.contrib.auth import login, authenticate, logout
+from django.views.decorators.csrf import csrf_protect
+
 from apps.users.forms import UserCreationForm, UserUpdateForm, UserRegisterForm, UserLoginForm
 from django.views.generic import DeleteView
 from django.contrib.auth.models import User
@@ -11,6 +14,9 @@ from django.views import View
 
 User = get_user_model()
 
+class HomeView(View):
+    def get(self, request):
+        return render(request, 'home.html')
 
 class UserCreateView(generic.CreateView):
     model = User
@@ -58,9 +64,8 @@ class RegisterView(View):
         if form.is_valid():
             user = form.save()
             login(request, user)
-            return redirect('home')
+            return redirect(reverse_lazy('home'))
         return render(request, 'users/register.html', {'form': form})
-
 
 class LoginView(View):
     def get(self, request):
