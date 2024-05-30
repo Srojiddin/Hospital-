@@ -30,11 +30,6 @@ class UserCreationForm(UserCreationForm):
 
 
 class UserUpdateForm(UserChangeForm):
-    class UserUpdateForm(UserChangeForm):
-        email = forms.EmailField(required=True, label="Адрес электронной почты")
-        first_name = forms.CharField(required=False, label="Имя")
-        last_name = forms.CharField(required=False, label="Фамилия")
-
         class Meta:
             model = User
             fields = ['username', 'email', 'first_name', 'last_name']
@@ -58,5 +53,4 @@ class UserDeleteForm(forms.ModelForm):
     class Meta:
         model = User
         fields = '__all__'
-
 
