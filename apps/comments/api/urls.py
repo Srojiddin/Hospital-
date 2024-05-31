@@ -7,7 +7,7 @@ router = DefaultRouter()
 
 
 urlpatterns = [
-    path('comment_crud/<int:pk>/', views.CommentRetrieveUpdateDestroyAPIView.as_view(), name='change'),
+    path('comment/<int:pk>/', views.CommentRetrieveUpdateDestroyAPIView.as_view(), name='change'),
     path('comment_create/<int:pk>/', views.CommentListCreateView.as_view(), name='comment_create'),
 ]
 

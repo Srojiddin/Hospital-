@@ -1,8 +1,6 @@
-from rest_framework import generics,viewsets
-from rest_framework.response import Response
-from rest_framework.views import APIView
-from rest_framework.permissions import IsAuthenticatedOrReadOnly
-from rest_framework import status
+
+from rest_framework import generics, viewsets
+
 
 from apps.doctors.models import Doctor
 from apps.doctors.api.serializers import DoctorSerializer, DoctorCreateSerializer

@@ -1,12 +1,15 @@
-from django.contrib import admin
-from django.urls import path,include
+from django.urls import path, include
 
 from django.conf import settings
 from django.conf.urls.static import static
 
+from core.admin import admin
+
 api_urlpatterns = [
-    path('doctor/', include('apps.doctors.api.urls')),
+    path('doctors/', include('apps.doctors.api.urls')),
     path('comments/', include('apps.comments.api.urls')),
+    path('appointments/', include('apps.appointments.api.urls')),
+    path('category/', include('apps.categories.api.urls')),
 ]
 
 urlpatterns = [

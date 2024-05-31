@@ -8,10 +8,6 @@ from apps.comments.api.serializers import CommentSerializer, CommentCreateSerial
 from apps.comments.models import Comment
 
 
-# class CommentViewSet(viewsets.ModelViewSet):
-#     queryset = Comment.objects.all()
-#     serializer_class = CommentSerializer
-
 
 class CommentListCreateView(generics.ListCreateAPIView):
     queryset = Comment.objects.all()
@@ -29,3 +25,5 @@ def get_serializer_class(self):
 class CommentRetrieveUpdateDestroyAPIView(generics.RetrieveUpdateDestroyAPIView):
     queryset = Comment.objects.all()
     serializer_class = CommentSerializer
+
+

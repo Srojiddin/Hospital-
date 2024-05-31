@@ -2,7 +2,6 @@ from django.urls import path
 from apps.doctors.api import views
 from rest_framework.routers import DefaultRouter
 
-# from apps.doctors.api.views import DoctorListAPIView, DoctorDetailAPIView, DoctorUpdateAPIView, DoctorDeleteAPIView
 
 router = DefaultRouter()
 router.register('', views.DoctorCreateViewSet, basename="doctor_api")
