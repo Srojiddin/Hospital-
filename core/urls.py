@@ -10,6 +10,7 @@ api_urlpatterns = [
     path('comments/', include('apps.comments.api.urls')),
     path('appointments/', include('apps.appointments.api.urls')),
     path('category/', include('apps.categories.api.urls')),
+    path('api-auth/', include('rest_framework.urls')),
 ]
 
 urlpatterns = [
