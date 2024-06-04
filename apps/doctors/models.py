@@ -26,7 +26,6 @@ class Doctor(models.Model):
     )
     image_for_doctor = models.ImageField(
         upload_to="doctors_media/",
-        blank=True, null=True,
         verbose_name="Фото",
     )
     creation_date = models.DateTimeField(

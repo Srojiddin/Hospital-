@@ -37,8 +37,9 @@ INSTALLED_APPS = [
 ] + [
     'apps.comments',
 ] + [
-    # 'apps.schedules',
-]
+    'apps.blogs',
+] 
+
 
 
 

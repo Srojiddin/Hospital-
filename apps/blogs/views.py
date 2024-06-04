@@ -1,0 +1,37 @@
+from django.urls import reverse_lazy
+from django.views import generic
+from apps.blogs.models import Blog
+from apps.blogs.forms import BlogCreateForm, BlogUpdateForm, BlogDeleteForm
+
+class BlogCreateView(generic.CreateView):
+    model = Blog
+    form_class = BlogCreateForm
+    template_name = 'blogs/blog_create.html'
+    success_url = reverse_lazy('blogs:list')
+
+class BlogListView(generic.ListView):
+    model = Blog
+    template_name = 'blogs/blog_list.html'
+
+    def get_context_data(self, **kwargs):
+        context = super().get_context_data(**kwargs)
+        context['form'] = BlogCreateForm()
+        return context
+
+class BlogDetailView(generic.DetailView):
+    model = Blog
+    template_name = 'blogs/blog_detail.html'
+    context_object_name = 'blog'
+
+class BlogUpdateView(generic.UpdateView):
+    model = Blog
+    form_class = BlogUpdateForm
+    template_name = 'blogs/blog_update.html'
+    success_url = reverse_lazy('blogs:list')
+
+class BlogDeleteView(generic.DeleteView):
+    model = Blog
+    form_class = BlogDeleteForm
+    template_name =  'blogs/blog_delete.html'
+    context_object_name = 'blog'
+    success_url = reverse_lazy('blogs:list')
