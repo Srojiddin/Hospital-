@@ -9,10 +9,11 @@ from core.swagger import docs
 from rest_framework_simplejwt.views import TokenObtainPairView, TokenRefreshView
 
 api_urlpatterns = [
-    path('doctors/', include('apps.doctors.api.urls')),
-    path('comments/', include('apps.comments.api.urls')),
-    path('appointments/', include('apps.appointments.api.urls')),
-    path('category/', include('apps.categories.api.urls')),
+    path('api/', include('apps.doctors.api.urls')),
+    path('api/',include('apps.users.api.urls')),
+    path('api/', include('apps.comments.api.urls')),
+    path('api/', include('apps.appointments.api.urls')),
+    path('api/', include('apps.categories.api.urls')),
     path('api/', include('apps.blogs.api.urls')),
     path('api-auth/', include('rest_framework.urls')),
     path('token_create/', TokenObtainPairView.as_view()),

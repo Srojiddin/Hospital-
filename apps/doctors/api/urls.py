@@ -12,7 +12,3 @@ urlpatterns = [
    path('api/', include(router.urls)),
 ]
 
-    # path('doctors/', DoctorListAPIView.as_view(), name='doctor_list'),
-    # path('doctors/<int:pk>/', DoctorDetailAPIView.as_view(), name='doctor_detail'),
-    # path('doctors/update/<int:pk>/', DoctorUpdateAPIView.as_view(), name='doctor_update'),
-    # path('doctors/delete/<int:pk>/', DoctorDeleteAPIView.as_view(), name='doctor_delete'),

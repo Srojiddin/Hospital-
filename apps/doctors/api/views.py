@@ -24,5 +24,6 @@ class DoctorCreateViewSet(viewsets.ModelViewSet):
 class DoctorUpdateDeleteRetrieveAPIView(generics.RetrieveUpdateDestroyAPIView):
     queryset = Doctor.objects.all()
     serializer_class = DoctorSerializer
+    permission_classes = [IsAdmin]
 
 
