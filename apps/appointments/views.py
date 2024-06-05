@@ -35,3 +35,8 @@ class AppointmentDelete(generic.DeleteView):
     template_name = 'appointments/appointment_confirm_delete.html'
     context_object_name = 'appointment'
     success_url = reverse_lazy('/')
+
+
+class Contact(generic.ListView):
+    model = Appointment
+    template_name = 'contact.html'

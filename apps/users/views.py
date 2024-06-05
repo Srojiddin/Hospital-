@@ -7,22 +7,23 @@ from django.contrib.auth import login, authenticate, logout
 from django.views.decorators.csrf import csrf_protect
 
 from apps.users.forms import UserCreationForm, UserUpdateForm, UserRegisterForm, UserLoginForm
-from django.views.generic import DeleteView
+from django.views.generic import DeleteView, TemplateView
 from django.contrib.auth.models import User
 from django.views import View
 
 
 User = get_user_model()
 
-class HomeView(View):
-    def get(self, request):
-        return render(request, 'home.html')
+
+class IndexView(TemplateView):
+    template_name = 'index.html'
+#
 
 class UserCreateView(generic.CreateView):
     model = User
     form_class = UserCreationForm
     template_name = 'users/account.html'
-    success_url = '/index.html'
+    success_url = '/'
 
 
 class UserDetailView(generic.DetailView):

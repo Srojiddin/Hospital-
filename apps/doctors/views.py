@@ -6,10 +6,6 @@ from apps.doctors.models import Doctor
 from apps.doctors.forms import DoctorCreateForm, DoctorUpdateForm, DoctorDeleteForm
 
 
-class HomePageView(View):
-    def get(self, request):
-        return render(request, 'homepage.html')
-
 class DoctorCreateView(generic.CreateView):
     model = Doctor
     form_class = DoctorCreateForm
@@ -20,7 +16,7 @@ class DoctorCreateView(generic.CreateView):
 
 class DoctorListView(generic.ListView):
     model = Doctor
-    template_name = 'doctors/doctors.html'
+    template_name = 'doctors.html'
 
     def get_context_data(self, **kwargs):
         context = super().get_context_data(**kwargs)

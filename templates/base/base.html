@@ -1,0 +1,28 @@
+<!doctype html>
+{% load static %}
+<html class="no-js " lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>:: Oreo Hospital :: Home</title>
+    <link rel="icon" href="../favicon.ico">
+    <!-- start linking -->
+    <link rel="stylesheet" href="{% static 'assets/plugins/bootstrap/css/bootstrap.min.css' %}">
+    <link rel="stylesheet" href="{% static 'assets/plugins/aos/aos.min.css' %}">
+    <link rel="stylesheet" href="{% static 'assets/css/main.css' %}">
+</head>
+<body>
+
+
+    {% block content %}
+    {% endblock %}
+
+
+<!-- start screpting -->
+    <script src="{% static 'assets/bundles/libscripts.bundle.js' %}"></script>
+
+    <script src="{% static 'assets/js/app.js' %}"></script><!-- my js -->
+    <script src="{% static 'assets/js/countto.js' %}"></script>
+</body>
+</html>
