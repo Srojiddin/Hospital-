@@ -21,3 +21,10 @@ class Blog(models.Model):
     def __str__(self):
         return self.title
 
+
+class Departments(models.Model):
+    appellation = models.CharField(
+         max_length=100,
+     )
+    description = models.TextField(
+    )

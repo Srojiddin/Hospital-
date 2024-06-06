@@ -15,11 +15,11 @@
 
         <!-- start hero -->
         <section id="hero">
-            <div class="slider" style="background-image:url(assets/images/slider1.jpg)">
+            <div class="slider" style="background-image:url(../static/assets/images/slider1.jpg)">
                 <div class="container">
                     <div class="slider_text">
                         <h3 class="title"><span>Welcome to</span> <br>
-                            Siroj <strong>Hospital</strong></h3>
+                            Oreo <strong>Hospital</strong></h3>
                         <p class="sub-title">Contrary to popular belief, Lorem Ipsum is not simply random text.</p><br>
                         <button class="btn btn-primary btn-round">View More</button>
                     </div>
@@ -43,25 +43,29 @@
                         <div class="col-lg-4 col-md-6 col-6">
                             <select class="form-control m-b-15">
                                 <option selected="selected">Select Doctor</option>
-                                <option>Marc Parcival</option>
-                                <option>Alen Bailey</option>
-                                <option>Basil Andrew</option>
-                                <option>Giles Franklin</option>
-                                <option>Edgar Denzil</option>
-                                <option>Garfield Feris</option>
+                                {% for doctor in doctors %}
+                                    <option value="{{ doctor.id }}">{{ doctor.name }}</option>
+                                {% endfor %}
+{#                                <option>Alen Bailey</option>#}
+{#                                <option>Basil Andrew</option>#}
+{#                                <option>Giles Franklin</option>#}
+{#                                <option>Edgar Denzil</option>#}
+{#                                <option>Garfield Feris</option>#}
                             </select>
                         </div>
                         <div class="col-lg-4 col-md-6 col-6">
                             <select class="form-control">
                                 <option selected="selected">Select Department</option>
-                                <option>Cardiology</option>
-                                <option>Pulmonology</option>
-                                <option>Gynecology</option>
-                                <option>Neurology</option>
-                                <option>Urology</option>
-                                <option>Gastrology</option>
-                                <option>Pediatrician</option>
-                                <option>Laboratory</option>
+                                {% for category in categories %}
+                                <option>value=''{{ category.id}}">{{ category.name }}</option>
+                                {% endfor %}
+{#                                <option>Pulmonology</option>#}
+{#                                <option>Gynecology</option>#}
+{#                                <option>Neurology</option>#}
+{#                                <option>Urology</option>#}
+{#                                <option>Gastrology</option>#}
+{#                                <option>Pediatrician</option>#}
+{#                                <option>Laboratory</option>#}
                             </select>
                         </div>
                         <div class="col-lg-4 col-md-6">
@@ -87,7 +91,7 @@
                     <div class="row justify-content-between">
                         <div class="col-lg-4 col-sm-4">
                             <div class="box-img box-shadow" data-aos="fade-up">
-                                <img src="assets/images/about-img.jpg" alt="">
+                                <img src="../static/assets/images/about-img.jpg" alt="">
                                 <span class="section-line" data-aos="fade-up"></span>
                             </div>
                         </div>
@@ -126,7 +130,7 @@
                     <div class="row">
                         <div class="col-md-4 col-sm-6">
                             <div class="service-box" data-aos="fade-up" data-aos-duration="3000">
-                                <div class="service-icon"><img src="assets/images/icon-cardio-monitoring.png" alt="Cardio Monitoring"></div>
+                                <div class="service-icon"><img src="../static/assets/images/icon-cardio-monitoring.png" alt="Cardio Monitoring"></div>
                                 <div class="service-cnt">
                                     <div class="service-name">Cardio Monitoring</div>
                                     <div class="service-dep">
@@ -139,7 +143,7 @@
                         </div>
                         <div class="col-md-4 col-sm-6">
                             <div class="service-box" data-aos="fade-up" data-aos-duration="3000">
-                                <div class="service-icon"><img src="assets/images/icon-orthodontics.png" alt="Orthodontics">
+                                <div class="service-icon"><img src="../static/assets/images/icon-orthodontics.png" alt="Orthodontics">
                                 </div>
                                 <div class="service-cnt">
                                     <div class="service-name">Orthodontics</div>
@@ -153,7 +157,7 @@
                         </div>
                         <div class="col-md-4 col-sm-6">
                             <div class="service-box" data-aos="fade-up"  data-aos-duration="3000">
-                                <div class="service-icon"><img src="assets/images/icon-traumatology.png" alt="Traumatology">
+                                <div class="service-icon"><img src="../static/assets/images/icon-traumatology.png" alt="Traumatology">
                                 </div>
                                 <div class="service-cnt">
                                     <div class="service-name">Traumatology</div>
@@ -167,7 +171,7 @@
                         </div>
                         <div class="col-md-4 col-sm-6">
                             <div class="service-box" data-aos="fade-up" data-aos-duration="3000">
-                                <div class="service-icon"><img src="assets/images/icon-cardiology.png" alt="Cardiology">
+                                <div class="service-icon"><img src="../static/assets/images/icon-cardiology.png" alt="Cardiology">
                                 </div>
                                 <div class="service-cnt">
                                     <div class="service-name">Cardiology</div>
@@ -181,7 +185,7 @@
                         </div>
                         <div class="col-md-4 col-sm-6">
                             <div class="service-box" data-aos="fade-up" data-aos-duration="3000">
-                                <div class="service-icon"><img src="assets/images/icon-prostheses.png" alt="Prostheses">
+                                <div class="service-icon"><img src="../static/assets/images/icon-prostheses.png" alt="Prostheses">
                                 </div>
                                 <div class="service-cnt">
                                     <div class="service-name">Prostheses</div>
@@ -195,7 +199,7 @@
                         </div>
                         <div class="col-md-4 col-sm-6">
                             <div class="service-box" data-aos="fade-up" data-aos-duration="3000">
-                                <div class="service-icon"><img src="assets/images/icon-pulmonary.png" alt="Pulmonary"></div>
+                                <div class="service-icon"><img src="../static/assets/images/icon-pulmonary.png" alt="Pulmonary"></div>
                                 <div class="service-cnt">
                                     <div class="service-name">Pulmonary</div>
                                     <div class="service-dep">
@@ -268,7 +272,7 @@
                     <div class="row">
                         <div class="col-lg-3 col-md-6 col-sm-12">
                             <div class="team-box text-center" data-aos="flip-left" data-aos-easing="ease-out-cubic" data-aos-duration="5000">
-                                <div class="doctor-pic"><img src="assets/images/team-member-01.png" alt="Dr. John"></div>
+                                <div class="doctor-pic"><img src="../static/assets/images/team-member-01.png" alt="Dr. John"></div>
                                 <div class="doctor-info">
                                     <h4>Dr. John <span>Dentist</span></h4>
                                     <ul class="clearfix">
@@ -282,7 +286,7 @@
                         </div>
                         <div class="col-lg-3 col-md-6 col-sm-12">
                             <div class="team-box text-center" data-aos="flip-left" data-aos-easing="ease-out-cubic" data-aos-duration="4000">
-                                <div class="doctor-pic"><img src="assets/images/team-member-02.png" alt="Dr. Amelia"></div>
+                                <div class="doctor-pic"><img src="../static/assets/images/team-member-02.png" alt="Dr. Amelia"></div>
                                 <div class="doctor-info">
                                     <h4>Dr. Amelia <span>Gynecologist</span></h4>
                                     <ul class="clearfix">
@@ -295,7 +299,7 @@
                         </div>
                         <div class="col-lg-3 col-md-6 col-sm-12">
                             <div class="team-box text-center" data-aos="flip-left" data-aos-easing="ease-out-cubic" data-aos-duration="5000">
-                                <div class="doctor-pic"><img src="assets/images/team-member-03.png" alt="Dr. Jack"></div>
+                                <div class="doctor-pic"><img src="../static/assets/images/team-member-03.png" alt="Dr. Jack"></div>
                                 <div class="doctor-info">
                                     <h4>Dr. Jack <span>Audiology</span></h4>
                                     <ul class="clearfix">
@@ -310,7 +314,7 @@
                         </div>
                         <div class="col-lg-3 col-md-6 col-sm-12">
                             <div class="team-box text-center" data-aos="flip-left" data-aos-easing="ease-out-cubic" data-aos-duration="3000">
-                                <div class="doctor-pic"><img src="assets/images/team-member-04.png" alt="Dr. Charlie"></div>
+                                <div class="doctor-pic"><img src="../static/assets/images/team-member-04.png" alt="Dr. Charlie"></div>
                                 <div class="doctor-info">
                                     <h4>Dr. Charlie<span>Dentist</span></h4>
                                     <ul class="clearfix">
@@ -354,7 +358,7 @@
                         </div>
                         <div class="col-lg-6 col-md-12">
                             <div class="box-img" data-aos="fade-up" data-aos-duration="3000">
-                                <img src="assets/images/why-choose-img.png" alt="">
+                                <img src="../static/assets/images/why-choose-img.png" alt="">
                             </div>
                         </div>
                     </div>
@@ -389,7 +393,7 @@
                         <div class="col-lg-4 col-md-6">
                             <div class="blog-box">
                                 <div class="blog-img">
-                                    <img src="assets/images/blog-1.png" alt="">
+                                    <img src="../static/assets/images/blog-1.png" alt="">
                                 </div>
                                 <div class="blog-cnt">
                                     <h5><a href="javascript:void(0);">How to handle your kids’ from Lorem ipsum dolor sit amet</a></h5>
@@ -405,7 +409,7 @@
                         <div class="col-lg-4 col-md-6">
                             <div class="blog-box">
                                 <div class="blog-img">
-                                    <img src="assets/images/blog-2.png" alt="">
+                                    <img src="../static/assets/images/blog-2.png" alt="">
                                 </div>
                                 <div class="blog-cnt">
                                     <h5><a href="javascript:void(0);">How to handle your kids’ from Lorem ipsum dolor sit amet</a></h5>
@@ -421,7 +425,7 @@
                         <div class="col-lg-4 d-none d-lg-block">
                             <div class="blog-box">
                                 <div class="blog-img">
-                                    <img src="assets/images/blog-3.png" alt="">
+                                    <img src="../static/assets/images/blog-3.png" alt="">
                                 </div>
                                 <div class="blog-cnt">
                                     <h5><a href="javascript:void(0);">How to handle your kids’ from Lorem ipsum dolor sit amet</a></h5>

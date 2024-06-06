@@ -34,3 +34,7 @@ class Appointment (models.Model):
 
     def str(self):
         return f" {self.user} {self.check_in_date} {self.check_out_date} {self.date_of_reservation}"
+
+
+class Contact(models.Model):
+    ...

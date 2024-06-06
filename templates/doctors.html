@@ -12,7 +12,7 @@
     {% include 'base/header.html' %}
     <!-- start hero -->
     <section id="hero">
-        <div class="inner-banner" style="background-image:url(assets/images/banner-doctors.jpg)">
+        <div class="inner-banner" style="background-image: url(../static/assets/images/banner-doctors.jpg);">
             <div class="container">
                 <h3 class="title">Our <br><big><strong>Specialist</strong></big></h3>
             </div>
@@ -39,7 +39,7 @@
                     {% for doctor in doctors %}
                     <div class="col-md-4 col-sm-6">
                         <div class="team-box text-center" data-aos="flip-left" data-aos-easing="ease-out-cubic" data-aos-duration="5000">
-                            <div class="doctor-pic"><img src="{{ doctor.image_for_doctors.url }}" alt="{{ doctor.name }}"></div>
+                            <div class="doctor-pic"><img src="{{ doctor.image_for_doctor.url }}" alt="{{ doctor.name }}"></div>
                             <div class="doctor-info">
                                 <h4>{{ doctor.name }} <span>{{ doctor.choosing_a_specialization }}</span></h4>
                                 <ul class="clearfix">

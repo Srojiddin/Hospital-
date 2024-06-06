@@ -1,7 +1,9 @@
+import generic
 from django.shortcuts import render
 from django.views.generic import ListView, CreateView, DetailView, UpdateView, DeleteView
 
 from apps.categories.models import Category
+
 
 
 class CategoryCreateView(CreateView):
@@ -37,3 +39,5 @@ class CategoryDeleteView(DeleteView):
     template_name = 'categories/category_delete.html'
     context_object_name = 'category'
     success_url = '/'
+
+

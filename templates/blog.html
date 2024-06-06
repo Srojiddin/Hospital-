@@ -1,17 +1,3 @@
-{#<!doctype html>#}
-{#<html class="no-js " lang="en">#}
-{#<head>#}
-{#    <meta charset="UTF-8">#}
-{#    <meta name="viewport" content="width=device-width, initial-scale=1.0">#}
-{#    <meta http-equiv="X-UA-Compatible" content="ie=edge">#}
-{#    <title>:: Oreo Hospital :: Blog</title>#}
-{#    <link rel="icon" href="favicon.ico">#}
-{#    <!-- start linking -->#}
-{#    <link rel="stylesheet" href="assets/plugins/bootstrap/css/bootstrap.min.css">#}
-{#    <link rel="stylesheet" href="assets/plugins/aos/aos.min.css">#}
-{#    <link rel="stylesheet" href="assets/css/main.css">#}
-{#</head>#}
-{#<body>#}
 {% extends 'base/base.html' %}
 
 {% block content %}
@@ -52,13 +38,13 @@
                                 <div id="carouselExampleControls" class="carousel slide" data-ride="carousel">
                                     <div class="carousel-inner" role="listbox">
                                         <div class="carousel-item active">
-                                            <img class="d-block img-fluid" src="assets/images/blog/blog-page-1.jpg" alt="First slide">
+                                            <img class="d-block img-fluid" src="../static/assets/images/blog/blog-page-1.jpg" alt="First slide">
                                         </div>
                                         <div class="carousel-item">
-                                            <img class="d-block img-fluid" src="assets/images/blog/blog-page-2.jpg" alt="Second slide">
+                                            <img class="d-block img-fluid" src="../static/assets/images/blog/blog-page-2.jpg" alt="Second slide">
                                         </div>
                                         <div class="carousel-item">
-                                            <img class="d-block img-fluid" src="assets/images/blog/blog-page-3.jpg" alt="Third slide">
+                                            <img class="d-block img-fluid" src="../static/assets/images/blog/blog-page-3.jpg" alt="Third slide">
                                         </div>
                                     </div>
                                     <a class="carousel-control-prev" href="#carouselExampleControls" role="button" data-slide="prev">
@@ -91,7 +77,7 @@
                         </div>                    
                         <div class="body">
                             <div class="img-post m-b-15">
-                                <img src="assets/images/blog/blog-page-2.jpg" alt="Awesome Image">
+                                <img src="../static/assets/images/blog/blog-page-2.jpg" alt="Awesome Image">
                                 <div class="social_share">                            
                                     <button class="btn btn-primary btn-icon btn-icon-mini btn-round"><i class="zmdi zmdi-facebook"></i></button>
                                     <button class="btn btn-primary btn-icon btn-icon-mini btn-round"><i class="zmdi zmdi-twitter"></i></button>
@@ -113,7 +99,7 @@
                         </div>                    
                         <div class="body">
                             <div class="img-post m-b-15">
-                                <img src="assets/images/blog/blog-page-3.jpg" alt="Awesome Image">
+                                <img src="../static/assets/images/blog/blog-page-3.jpg" alt="Awesome Image">
                                 <div class="social_share">                            
                                     <button class="btn btn-primary btn-icon btn-icon-mini btn-round"><i class="zmdi zmdi-facebook"></i></button>
                                     <button class="btn btn-primary btn-icon btn-icon-mini btn-round"><i class="zmdi zmdi-twitter"></i></button>
@@ -135,7 +121,7 @@
                         </div>                    
                         <div class="body">
                             <div class="img-post m-b-15">
-                                <img src="assets/images/blog/blog-page-4.jpg" alt="Awesome Image">
+                                <img src="../static/assets/images/blog/blog-page-4.jpg" alt="Awesome Image">
                                 <div class="social_share">                            
                                     <button class="btn btn-primary btn-icon btn-icon-mini btn-round"><i class="zmdi zmdi-facebook"></i></button>
                                     <button class="btn btn-primary btn-icon btn-icon-mini btn-round"><i class="zmdi zmdi-twitter"></i></button>
@@ -174,14 +160,14 @@
                                 <div class="col-xl-12 col-lg-12">
                                     <div class="border single_post">                                    
                                         <div class="img-post m-b-5">
-                                            <img src="assets/images/blog/blog-page-2.jpg" alt="Awesome Image">                                        
+                                            <img src="../static/assets/images/blog/blog-page-2.jpg" alt="Awesome Image">
                                         </div>
                                         <p class="m-b-0">Apple Introduces Search Ads Basic</p>
                                         <small>Dec 20, 2017</small>
                                     </div>
                                     <div class="border single_post m-t-20">
                                         <div class="img-post m-b-5">
-                                            <img src="assets/images/blog/blog-page-3.jpg" alt="Awesome Image">                                            
+                                            <img src="../static/assets/images/blog/blog-page-3.jpg" alt="Awesome Image">
                                         </div>
                                         <p class="m-b-0">new rules, more cars, more races</p>
                                         <small>Dec 20, 2017</small>
@@ -244,13 +230,8 @@
 
     <!-- start footer -->
    {% include 'base/footer.html' %}
-{#</div>#}
-{#<!-- start screpting -->#}
-{#<script src="assets/bundles/libscripts.bundle.js"></script>#}
-{##}
-{#<script src="assets/js/app.js"></script><!-- my js -->#}
-{#</body>#}
-{#</html>#}
+</div>
+
 
 
 {% endblock %}

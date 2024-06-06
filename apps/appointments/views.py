@@ -37,6 +37,7 @@ class AppointmentDelete(generic.DeleteView):
     success_url = reverse_lazy('/')
 
 
-class Contact(generic.ListView):
+class ContactListView(generic.ListView):
     model = Appointment
     template_name = 'contact.html'
+

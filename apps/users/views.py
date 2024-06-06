@@ -6,6 +6,7 @@ from django.contrib.auth import get_user_model
 from django.contrib.auth import login, authenticate, logout
 from django.views.decorators.csrf import csrf_protect
 
+from apps.doctors.models import Doctor
 from apps.users.forms import UserCreationForm, UserUpdateForm, UserRegisterForm, UserLoginForm
 from django.views.generic import DeleteView, TemplateView
 from django.contrib.auth.models import User
@@ -17,7 +18,13 @@ User = get_user_model()
 
 class IndexView(TemplateView):
     template_name = 'index.html'
-#
+
+    def get_context_data(self, **kwargs):
+        context = super().get_context_data(**kwargs)
+        context['doctors'] = Doctor.objects.all()
+
+        return context
+
 
 class UserCreateView(generic.CreateView):
     model = User
