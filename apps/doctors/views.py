@@ -11,12 +11,14 @@ class DoctorCreateView(generic.CreateView):
     form_class = DoctorCreateForm
     template_name = 'doctors/doctor_create.html'
     success_url = reverse_lazy('doctors.list')
-    context_object_name = "doctors"
+    # context_object_name = "doctors"
 
 
 class DoctorListView(generic.ListView):
     model = Doctor
     template_name = 'doctors.html'
+    context_object_name = "doctors"
+
 
     def get_context_data(self, **kwargs):
         context = super().get_context_data(**kwargs)
