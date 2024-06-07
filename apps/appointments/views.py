@@ -1,8 +1,9 @@
+from django.shortcuts import render
 from django.views import generic
 from apps.appointments.models import Appointment
 from apps.appointments.forms import AppointmentCreateFrom, AppointmentDetailForm, AppointmentDeleteForm
 from django.urls import reverse_lazy
-
+from apps.appointments.models import Appointment, Doctor, Category
 
 class AppointmentList(generic.ListView):
     model = Appointment
@@ -10,10 +11,6 @@ class AppointmentList(generic.ListView):
     context_object_name = 'appointments_list'
 
 
-class AppointmentCreate(generic.CreateView):
-    model = Appointment
-    form_class = AppointmentCreateFrom
-    template_name = 'contact.html' 
 
 
 class AppointmentDetail(generic.DetailView):
@@ -42,9 +39,23 @@ class ContactListView(generic.ListView):
     template_name = 'contact.html'
 
 
-from django.shortcuts import render
-from .models import Appointment, Doctor, Category
-from django.utils import timezone
+class AppointmentCreate(generic.CreateView):
+    model = Appointment
+    form_class = AppointmentCreateFrom
+    template_name = 'contact.html' 
+   
+
+    def get_context_data(self, **kwargs):
+        context = super().get_context_data(**kwargs)
+        context['select doctor'] = Appointment.objects.all()
+        context['select departments'] = Appointment.objects.all()
+        print("*" * 30)
+
+        return context
+
+
+
+
 
 def create_appointments(request):
     if request.method == 'POST':
