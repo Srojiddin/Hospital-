@@ -1,4 +1,4 @@
-from django.shortcuts import render, redirect
+from django.shortcuts import render, redirect, get_object_or_404
 from django.urls import reverse_lazy
 from django.views import generic
 from django.views import View
@@ -12,8 +12,8 @@ class DoctorCreateView(generic.CreateView):
     model = Doctor
     form_class = DoctorCreateForm
     template_name = 'doctors/doctor_create.html'
-    success_url = reverse_lazy('doctors.list')
-    # context_object_name = "doctors"
+    success_url = reverse_lazy('doctors.html')
+    context_object_name = "doctors"
 
 
 class DoctorListView(generic.ListView):
@@ -31,15 +31,20 @@ class DoctorListView(generic.ListView):
 
 class DoctorDetailView(generic.DetailView):
     model = Doctor
-    template_name = 'doctors/doctor_detail.html'
+    template_name = 'doctors-detail.html'
     context_object_name = 'doctors'
+    pk_url_kwarg = 'pk'
 
+    def doctor_detail(request, pk):
+        doctor = get_object_or_404(Doctor, pk=pk)
+        return render(request, 'doctor_detail.html', {'doctor': doctor})
 
 class DoctorUpdateView(generic.UpdateView):
     model = Doctor
     form_class = DoctorUpdateForm
     template_name = 'doctors/doctor_update.html'
     success_url = 'doctors.html'
+
 
 class DoctorDeleteView(generic.DeleteView):
     model = Doctor

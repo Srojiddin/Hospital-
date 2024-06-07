@@ -28,3 +28,14 @@ class Departments(models.Model):
      )
     description = models.TextField(
     )
+
+
+class About(models.Model):
+    ...
+
+
+class Gallery(models.Model):
+    image_for_Gallery = models.ImageField(
+        upload_to='gallery/',
+        verbose_name="Фото",
+    )

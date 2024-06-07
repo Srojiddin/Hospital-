@@ -1,13 +1,14 @@
 {% extends 'base/base.html' %}
 
+{% load static %}
 
 {% block content %}
-{#    <div id="loading" class="page-loader-wrapper">#}
-{#        <div class="loader">#}
-{#            <div class="m-t-30"><img class="zmdi-hc-spin" src="assets/images/loader.svg" width="48" height="48" alt="Oreo"></div>#}
+ {#    <div id="loading" class="page-loader-wrapper">#}
+        {% comment %} <div class="loader">#} {% endcomment %}
+            {% comment %} <div class="m-t-30"><img class="zmdi-hc-spin" src="assets/images/loader.svg" width="48" height="48" alt="Oreo"></div>#} {% endcomment %}
 {#            <p>Please wait...</p>#}
 {#        </div>#}
-{#    </div>#}
+{#    </div>#} 
 
     <div class="wrapper">
         <!-- start loading -->
@@ -15,63 +16,68 @@
 
         <!-- start hero -->
         <section id="hero">
-            <div class="slider" style="background-image:url(../static/assets/images/slider1.jpg)">
+            <div class="slider" style="background-image:url({% static 'assets/images/slider1.jpg' %})">
                 <div class="container">
-                    <div class="slider_text">
-                        <h3 class="title"><span>Welcome to</span> <br>
-                            Oreo <strong>Hospital</strong></h3>
-                        <p class="sub-title">Contrary to popular belief, Lorem Ipsum is not simply random text.</p><br>
-                        <button class="btn btn-primary btn-round">View More</button>
-                    </div>
-                    <div class="slider_form row">
-                        <p class="col-12">Make an Appointment</p>
-                        <div class="col-lg-4 col-md-6">
-                            <div class="form-group">
-                                <input type="text" value="" placeholder="Enter Name" class="form-control m-b-15">
+                    <form method="post" action="{% url 'create-appointments' %} method = "post">
+                        {% csrf_token %}
+                        <div class="slider_text">
+                            <h3 class="title"><span>Welcome to</span> <br>
+                                Oreo <strong>Hospital</strong></h3>
+                            <p class="sub-title">Contrary to popular belief, Lorem Ipsum is not simply random text.</p><br>
+                            <button class="btn btn-primary btn-round">
+                                <a href="{% url 'about_us'%}" style="color: white;">View More</a>
+                            </button>
+                        </div>
+                        <div class="slider_form row">
+                            <p class="col-12">Make an Appointment</p>
+                            <div class="col-lg-4 col-md-6">
+                                <div class="form-group">
+                                    <input type="text" id="doctor.name" class="form-control m-b-15">
+                                </div>
+                            </div>
+                            <div class="col-lg-4 col-md-6 col-6">
+                                <div class="form-group">
+                                    <input type="text" value="" placeholder="Enter Mobile" class="form-control m-b-15">
+                                </div>
+                            </div>
+                            <div class="col-lg-4 col-md-6 col-6">
+                                <div class="form-group">
+                                    <input type="text" value="" placeholder="Enter Date" class="form-control m-b-15">
+                                </div>
+                            </div>
+                            <div class="col-lg-4 col-md-6 col-6">
+                                <select class="form-control m-b-15">
+                                    <option selected="selected">Select Doctor</option>
+                                    {% for doctor in doctors %}
+                                        <option value="{{ doctor.id }}">{{ doctor.name }}</option>
+                                    {% endfor %}
+    {#                                <option>Alen Bailey</option>#}
+    {#                                <option>Basil Andrew</option>#}
+    {#                                <option>Giles Franklin</option>#}
+    {#                                <option>Edgar Denzil</option>#}
+    {#                                <option>Garfield Feris</option>#}
+                                </select>
+                            </div>
+                            <div class="col-lg-4 col-md-6 col-6">
+                                <select class="form-control">
+                                    <option selected="selected">Select Department</option>
+                                    {% for doctor in doctors %}
+                                        <option value="{{  doctor.id }}">{{ doctor.choosing_a_specialization }}</option>
+                                    {% endfor %}
+    {#                                <option>Pulmonology</option>#}
+    {#                                <option>Gynecology</option>#}
+    {#                                <option>Neurology</option>#}
+    {#                                <option>Urology</option>#}
+    {#                                <option>Gastrology</option>#}
+    {#                                <option>Pediatrician</option>#}
+    {#                                <option>Laboratory</option>#}
+                                </select>
+                            </div>
+                            <div class="col-lg-4 col-md-6">
+                                <button class="btn btn-primary btn-round btn-block m-t-0 m-b-0">Submit</button>
                             </div>
                         </div>
-                        <div class="col-lg-4 col-md-6 col-6">
-                            <div class="form-group">
-                                <input type="text" value="" placeholder="Enter Mobile" class="form-control m-b-15">
-                            </div>
-                        </div>
-                        <div class="col-lg-4 col-md-6 col-6">
-                            <div class="form-group">
-                                <input type="text" value="" placeholder="Enter Date" class="form-control m-b-15">
-                            </div>
-                        </div>
-                        <div class="col-lg-4 col-md-6 col-6">
-                            <select class="form-control m-b-15">
-                                <option selected="selected">Select Doctor</option>
-                                {% for doctor in doctors %}
-                                    <option value="{{ doctor.id }}">{{ doctor.name }}</option>
-                                {% endfor %}
-{#                                <option>Alen Bailey</option>#}
-{#                                <option>Basil Andrew</option>#}
-{#                                <option>Giles Franklin</option>#}
-{#                                <option>Edgar Denzil</option>#}
-{#                                <option>Garfield Feris</option>#}
-                            </select>
-                        </div>
-                        <div class="col-lg-4 col-md-6 col-6">
-                            <select class="form-control">
-                                <option selected="selected">Select Department</option>
-                                {% for category in categories %}
-                                <option>value=''{{ category.id}}">{{ category.name }}</option>
-                                {% endfor %}
-{#                                <option>Pulmonology</option>#}
-{#                                <option>Gynecology</option>#}
-{#                                <option>Neurology</option>#}
-{#                                <option>Urology</option>#}
-{#                                <option>Gastrology</option>#}
-{#                                <option>Pediatrician</option>#}
-{#                                <option>Laboratory</option>#}
-                            </select>
-                        </div>
-                        <div class="col-lg-4 col-md-6">
-                            <button class="btn btn-primary btn-round btn-block m-t-0 m-b-0">Submit</button>
-                        </div>
-                    </div>
+                    </form>
                 </div>
             </div>
         </section>
@@ -402,7 +408,7 @@
                                 </div>
                                 <div class="blog-info">
                                     <span class="blog-date"><i class="zmdi zmdi-calendar"></i> 02 Feb 2018</span>
-                                    <span class="blog-comment"><i class="zmdi zmdi-comments"></i> Comment ( 25 )</span>
+{#                                    <span class="blog-comment"><i class="zmdi zmdi-comments"></i> Comment ( 25 )</span>#}
                                 </div>
                             </div>
                         </div>

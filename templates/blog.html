@@ -1,4 +1,5 @@
 {% extends 'base/base.html' %}
+{% load static %}
 
 {% block content %}
 
@@ -10,7 +11,7 @@
     {% include 'base/header.html' %}
     <!-- start hero -->
     <section id="hero">
-        <div class="inner-banner" style="background-image:url(assets/images/banner-blog.jpg)">
+        <div class="inner-banner" style="background-image:url({% static 'assets/images/banner-blog.jpg' %})">
             <div class="container">
                 <h3 class="title">Our <br><big><strong>Blog</strong></big></h3>
             </div>
@@ -58,7 +59,7 @@
                                 </div>
                                 <div class="social_share">                            
                                     <button class="btn btn-primary btn-icon btn-icon-mini btn-round"><i class="zmdi zmdi-facebook"></i></button>
-                                    <button class="btn btn-primary btn-icon btn-icon-mini btn-round"><i class="zmdi zmdi-twitter"></i></button>
+                                    {% comment %} <button class="btn btn-primary btn-icon btn-icon-mini btn-round"><i class="zmdi zmdi-twitter"></i></button> {% endcomment %}
                                     <button class="btn btn-primary btn-icon btn-icon-mini btn-round"><i class="zmdi zmdi-instagram"></i></button>
                                 </div>
                             </div>
@@ -77,10 +78,10 @@
                         </div>                    
                         <div class="body">
                             <div class="img-post m-b-15">
-                                <img src="../static/assets/images/blog/blog-page-2.jpg" alt="Awesome Image">
+                                <img src="{% static 'assets/images/blog/blog-page-2.jpg' %}" alt="Awesome Image">
                                 <div class="social_share">                            
                                     <button class="btn btn-primary btn-icon btn-icon-mini btn-round"><i class="zmdi zmdi-facebook"></i></button>
-                                    <button class="btn btn-primary btn-icon btn-icon-mini btn-round"><i class="zmdi zmdi-twitter"></i></button>
+                                    {% comment %} <button class="btn btn-primary btn-icon btn-icon-mini btn-round"><i class="zmdi zmdi-twitter"></i></button> {% endcomment %}
                                     <button class="btn btn-primary btn-icon btn-icon-mini btn-round"><i class="zmdi zmdi-instagram"></i></button>
                                 </div>
                             </div>
@@ -99,10 +100,10 @@
                         </div>                    
                         <div class="body">
                             <div class="img-post m-b-15">
-                                <img src="../static/assets/images/blog/blog-page-3.jpg" alt="Awesome Image">
+                                <img src="{% static 'assets/images/blog/blog-page-3.jpg' %}" alt="Awesome Image">
                                 <div class="social_share">                            
                                     <button class="btn btn-primary btn-icon btn-icon-mini btn-round"><i class="zmdi zmdi-facebook"></i></button>
-                                    <button class="btn btn-primary btn-icon btn-icon-mini btn-round"><i class="zmdi zmdi-twitter"></i></button>
+                                    {% comment %} <button class="btn btn-primary btn-icon btn-icon-mini btn-round"><i class="zmdi zmdi-twitter"></i></button> {% endcomment %}
                                     <button class="btn btn-primary btn-icon btn-icon-mini btn-round"><i class="zmdi zmdi-instagram"></i></button>
                                 </div>
                             </div>
@@ -121,7 +122,7 @@
                         </div>                    
                         <div class="body">
                             <div class="img-post m-b-15">
-                                <img src="../static/assets/images/blog/blog-page-4.jpg" alt="Awesome Image">
+                                <img src=" {% static 'assets/images/blog/blog-page-4.jpg' %}" alt="Awesome Image">
                                 <div class="social_share">                            
                                     <button class="btn btn-primary btn-icon btn-icon-mini btn-round"><i class="zmdi zmdi-facebook"></i></button>
                                     <button class="btn btn-primary btn-icon btn-icon-mini btn-round"><i class="zmdi zmdi-twitter"></i></button>
@@ -160,14 +161,14 @@
                                 <div class="col-xl-12 col-lg-12">
                                     <div class="border single_post">                                    
                                         <div class="img-post m-b-5">
-                                            <img src="../static/assets/images/blog/blog-page-2.jpg" alt="Awesome Image">
+                                            <img src="{% static 'assets/images/blog/blog-page-2.jpg' %}" alt="Awesome Image">
                                         </div>
                                         <p class="m-b-0">Apple Introduces Search Ads Basic</p>
                                         <small>Dec 20, 2017</small>
                                     </div>
                                     <div class="border single_post m-t-20">
                                         <div class="img-post m-b-5">
-                                            <img src="../static/assets/images/blog/blog-page-3.jpg" alt="Awesome Image">
+                                            <img src="{% static 'assets/images/blog/blog-page-3.jpg' %} " alt="Awesome Image">
                                         </div>
                                         <p class="m-b-0">new rules, more cars, more races</p>
                                         <small>Dec 20, 2017</small>
@@ -196,15 +197,15 @@
                         </div>
                         <div class="body widget">
                             <ul class="list-unstyled instagram-plugin m-b-0">
-                                <li><a href="javascript:void(0);"><img src="assets/images/blog/05-img.jpg" alt="image description"></a></li>
-                                <li><a href="javascript:void(0);"><img src="assets/images/blog/06-img.jpg" alt="image description"></a></li>
-                                <li><a href="javascript:void(0);"><img src="assets/images/blog/07-img.jpg" alt="image description"></a></li>
-                                <li><a href="javascript:void(0);"><img src="assets/images/blog/08-img.jpg" alt="image description"></a></li>
-                                <li><a href="javascript:void(0);"><img src="assets/images/blog/09-img.jpg" alt="image description"></a></li>
-                                <li><a href="javascript:void(0);"><img src="assets/images/blog/10-img.jpg" alt="image description"></a></li>
-                                <li><a href="javascript:void(0);"><img src="assets/images/blog/11-img.jpg" alt="image description"></a></li>
-                                <li><a href="javascript:void(0);"><img src="assets/images/blog/12-img.jpg" alt="image description"></a></li>
-                                <li><a href="javascript:void(0);"><img src="assets/images/blog/13-img.jpg" alt="image description"></a></li>
+                                <li><a href="javascript:void(0);"><img src="{% static 'assets/images/blog/05-img.jpg' %}}" alt="image description"></a></li>
+                                <li><a href="javascript:void(0);"><img src="{% static 'assets/images/blog/06-img.jpg' %}}" alt="image description"></a></li>
+                                <li><a href="javascript:void(0);"><img src="{% static 'assets/images/blog/07-img.jpg' %}" alt="image description"></a></li>
+                                <li><a href="javascript:void(0);"><img src="{% static 'assets/images/blog/08-img.jpg' %}" alt="image description"></a></li>
+                                <li><a href="javascript:void(0);"><img src="{% static 'assets/images/blog/09-img.jpg' %}" alt="image description"></a></li>
+                                <li><a href="javascript:void(0);"><img src="{% static 'assets/images/blog/10-img.jpg' %}" alt="image description"></a></li>
+                                <li><a href="javascript:void(0);"><img src="{% static 'assets/images/blog/11-img.jpg' %}" alt="image description"></a></li>
+                                <li><a href="javascript:void(0);"><img src="{% static 'assets/images/blog/12-img.jpg' %}" alt="image description"></a></li>
+                                <li><a href="javascript:void(0);"><img src="{% static 'assets/images/blog/13-img.jpg' %}" alt="image description"></a></li>
                             </ul>
                         </div>
                     </div>

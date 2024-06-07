@@ -1,6 +1,6 @@
 from django.urls import reverse_lazy
 from django.views import generic
-from apps.blogs.models import Blog,Departments
+from apps.blogs.models import Blog,Departments,About,Gallery
 from apps.blogs.forms import BlogCreateForm, BlogUpdateForm, BlogDeleteForm
 
 
@@ -48,3 +48,14 @@ class BlogDeleteView(generic.DeleteView):
 class DepartmentsListView(generic.ListView):
     model = Departments
     template_name = 'departments.html'
+
+
+class AboutUsView(generic.TemplateView):
+    model = About
+    template_name = 'about.html'
+
+
+class GalleryListView(generic.ListView):
+    model = Gallery
+    template_name = 'galary.html'
+    context_object_name = "galleries"
